@@ -51,4 +51,45 @@ public class LinkedList<E> {
         sb.append("]");
         return sb.toString();
     }
+
+    public void remove(E e) {
+
+        Node temp = head, prev = null;
+
+        if (temp == null) {
+            return;
+        }
+
+        while (temp != null && temp.data != e) {
+            prev = temp;
+            temp = temp.next;
+        }
+
+        if (temp == null) {
+            return;
+        }
+        prev.next = temp.next;
+    }
+
+    public int size() {
+        int i = 0;
+
+        Node temp = head;
+        if (temp == null) {
+            return 0;
+        }
+
+        while (temp.next != null) {
+            i++;
+            temp = temp.next;
+        }
+
+        return i + 1;
+    }
+
+    public LinkedList<E> summ(LinkedList<E> list) {
+
+
+        return null;
+    }
 }
