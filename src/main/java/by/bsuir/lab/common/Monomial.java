@@ -39,4 +39,14 @@ public class Monomial {
     public void setOperator(Operator operator) {
         this.operator = operator;
     }
+
+    @Override
+    public String toString() {
+        return "Monomial{" +
+                "koefficient=" + koefficient +
+                ", parametr='" + parametr + '\'' +
+                ", power=" + power +
+                ", operator=" + operator +
+                '}';
+    }
 }
