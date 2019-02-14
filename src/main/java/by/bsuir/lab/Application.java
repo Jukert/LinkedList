@@ -1,12 +1,13 @@
 package by.bsuir.lab;
 
+
 import by.bsuir.lab.list.LinkedList;
-import by.bsuir.lab.parser.MonomialParser;
+import by.bsuir.lab.parser.PolynomialParser;
 
 public class Application {
     public static void main(String[] args) {
 
-        LinkedList<String> list = new LinkedList<String>();
+        LinkedList<String> list = new LinkedList<>();
         list.add("asda");
         list.add("asda1");
         list.add("asda2");
@@ -16,8 +17,9 @@ public class Application {
         System.out.println();
 
 
-        MonomialParser m = new MonomialParser();
+        PolynomialParser m = new PolynomialParser();
 
         m.parse("7x8+20x+6");
+
     }
 }
