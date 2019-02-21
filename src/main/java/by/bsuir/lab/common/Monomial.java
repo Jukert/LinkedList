@@ -2,11 +2,10 @@ package by.bsuir.lab.common;
 
 public class Monomial {
 
-    private int koefficient;
-    private String parametr;
+    private int koefficient = 1;
+    private String parameter;
     private int power;
     private Operator operator;
-
 
     public int getKoefficient() {
         return koefficient;
@@ -16,12 +15,12 @@ public class Monomial {
         this.koefficient = koefficient;
     }
 
-    public String getParametr() {
-        return parametr;
+    public String getParameter() {
+        return parameter;
     }
 
-    public void setParametr(String parametr) {
-        this.parametr = parametr;
+    public void setParameter(String parameter) {
+        this.parameter = parameter;
     }
 
     public int getPower() {
@@ -44,7 +43,7 @@ public class Monomial {
     public String toString() {
         return "Monomial{" +
                 "koefficient=" + koefficient +
-                ", parametr='" + parametr + '\'' +
+                ", parameter='" + parameter + '\'' +
                 ", power=" + power +
                 ", operator=" + operator +
                 '}';

@@ -32,7 +32,7 @@ public class PolynomialParser {
         str = str.replace("{p}", "").replace("{m}", "");
 
         if (str.contains("x")) {
-            monomial.setParametr("x");
+            monomial.setParameter("x");
             if (str.contains("^")) {
                 try {
                     String data[] = str.split("\\^");

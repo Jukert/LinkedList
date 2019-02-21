@@ -8,6 +8,5 @@ public class Application {
         PolynomialParser m = new PolynomialParser();
 
         m.parse("7x^8+20x+6");
-
     }
 }

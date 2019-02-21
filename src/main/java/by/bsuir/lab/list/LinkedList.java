@@ -1,6 +1,8 @@
 package by.bsuir.lab.list;
 
 
+import by.bsuir.lab.SumMonomial;
+
 public class LinkedList<E> {
 
     Node<E> head;
@@ -26,13 +28,31 @@ public class LinkedList<E> {
             return;
         }
 
-        Node last = head;
+        Node temp = head;
 
-        while (last.next != null) {
-            last = last.next;
+        while (temp.next != null) {
+            temp = temp.next;
         }
 
-        last.next = node;
+        temp.next = node;
+    }
+
+    public E get(int i) {
+
+        Node temp = this.head;
+        int j = 0;
+        while (temp.next != null) {
+            if (i == j) {
+                 return (E) temp.data;
+            }
+            j++;
+            temp = temp.next;
+        }
+
+        if (i == j) {
+            return (E) temp.data;
+        }
+        return null;
     }
 
     public String print() {
@@ -87,9 +107,8 @@ public class LinkedList<E> {
         return i + 1;
     }
 
-    public LinkedList<E> summ(LinkedList<E> list) {
-
-
-        return null;
+    public LinkedList<?> summ(LinkedList<E> list) {
+        SumMonomial sumMonomial = new SumMonomial();
+        return sumMonomial.sum(this, list);
     }
 }
