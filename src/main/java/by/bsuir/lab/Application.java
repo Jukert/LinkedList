@@ -1,12 +1,18 @@
 package by.bsuir.lab;
 
 
+import by.bsuir.lab.common.Monomial;
+import by.bsuir.lab.list.LinkedList;
 import by.bsuir.lab.parser.PolynomialParser;
 
 public class Application {
     public static void main(String[] args) {
         PolynomialParser m = new PolynomialParser();
 
-        m.parse("7x^8+20x+6");
+       LinkedList<Monomial> first = m.parse("7x^8+20x+6");
+       LinkedList<Monomial> second = m.parse("7x^8+20x+6");
+
+       LinkedList<Monomial> third = first.summ(second);
+        System.out.println(third.print());
     }
 }

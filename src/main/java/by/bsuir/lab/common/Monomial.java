@@ -1,5 +1,7 @@
 package by.bsuir.lab.common;
 
+import java.util.Objects;
+
 public class Monomial {
 
     private int koefficient = 1;
@@ -47,5 +49,21 @@ public class Monomial {
                 ", power=" + power +
                 ", operator=" + operator +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Monomial monomial = (Monomial) o;
+        return koefficient == monomial.koefficient &&
+                power == monomial.power &&
+                monomial.parameter != null ? parameter.equals(monomial.parameter) : (parameter == null && monomial.parameter == null) &&
+                operator == monomial.operator;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(koefficient, parameter, power, operator);
     }
 }

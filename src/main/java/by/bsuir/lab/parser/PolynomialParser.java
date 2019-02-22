@@ -6,7 +6,7 @@ import by.bsuir.lab.list.LinkedList;
 
 public class PolynomialParser {
 
-    public void parse(String str) {
+    public LinkedList<Monomial> parse(String str) {
 
         str = str.replace("+", "+{p}").replace("-", "-{m}");
         if (!str.startsWith("-")) {
@@ -15,13 +15,13 @@ public class PolynomialParser {
         String data[] = str.split("[+,-]");
 
 
-        LinkedList<Monomial> momials = new LinkedList<>();
+        LinkedList<Monomial> monomials = new LinkedList<>();
         for (String s : data) {
             if (s != null && s != "" && !s.isEmpty()) {
-                momials.add(parseMonomial(s));
+                monomials.add(parseMonomial(s));
             }
         }
-        System.out.println(momials.print());
+        return monomials;
     }
 
     private Monomial parseMonomial(String str) {

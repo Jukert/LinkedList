@@ -16,12 +16,28 @@ public class SumMonomial {
             int sSize = sMonomial.size();
             for (int j = 0; j < sSize; j++) {
 
+                if ((fMonomial.get(i).getParameter() == null && sMonomial.get(j).getParameter() == null)) {
 
+                    fMonomial.get(i).setKoefficient(fMonomial.get(i).getKoefficient() + sMonomial.get(j).getKoefficient());
+                    sMonomial.remove(sMonomial.get(j));
+
+                    break;
+                }
+                if ((fMonomial.get(i).getParameter() != null && sMonomial.get(j).getParameter() != null)) {
+                    if (fMonomial.get(i).getParameter().equals(sMonomial.get(j).getParameter()) &&
+                            fMonomial.get(i).getPower() == sMonomial.get(j).getPower()) {
+
+                        fMonomial.get(i).setKoefficient(fMonomial.get(i).getKoefficient() + sMonomial.get(j).getKoefficient());
+                        sMonomial.remove(sMonomial.get(j));
+
+                        break;
+                    }
+                }
 
             }
         }
 
-        return null;
+        return fMonomial;
     }
 
 }

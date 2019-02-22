@@ -80,7 +80,7 @@ public class LinkedList<E> {
             return;
         }
 
-        while (temp != null && temp.data != e) {
+        while (temp != null && temp.data.equals(e)) {
             prev = temp;
             temp = temp.next;
         }
@@ -88,7 +88,9 @@ public class LinkedList<E> {
         if (temp == null) {
             return;
         }
-        prev.next = temp.next;
+        if (prev != null) {
+            prev = temp;
+        }
     }
 
     public int size() {
@@ -107,8 +109,8 @@ public class LinkedList<E> {
         return i + 1;
     }
 
-    public LinkedList<?> summ(LinkedList<E> list) {
+    public LinkedList<E> summ(LinkedList<E> list) {
         SumMonomial sumMonomial = new SumMonomial();
-        return sumMonomial.sum(this, list);
+        return (LinkedList<E>) sumMonomial.sum(this, list);
     }
 }
