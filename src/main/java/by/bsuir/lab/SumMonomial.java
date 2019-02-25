@@ -1,6 +1,7 @@
 package by.bsuir.lab;
 
 import by.bsuir.lab.common.Monomial;
+import by.bsuir.lab.common.Operator;
 import by.bsuir.lab.list.LinkedList;
 
 public class SumMonomial {
@@ -9,7 +10,6 @@ public class SumMonomial {
 
         LinkedList<Monomial> fMonomial = (LinkedList<Monomial>) f;
         LinkedList<Monomial> sMonomial = (LinkedList<Monomial>) s;
-
         int fSize = fMonomial.size();
 
         for (int i = 0; i < fSize; i++) {
@@ -33,11 +33,28 @@ public class SumMonomial {
                         break;
                     }
                 }
-
             }
         }
-
+        fMonomial.addAll(sMonomial);
         return fMonomial;
+    }
+
+    public String formatter(LinkedList<Monomial> monomialList) {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < monomialList.size(); i++) {
+
+            Monomial m = monomialList.get(i);
+
+            sb.append(
+                        (m.getOperator().equals(Operator.PLUS) ? "+" : "-")
+                        + m.getKoefficient() + (m.getParameter() == null ? "" : m.getParameter())
+                        + (m.getPower() == 0 || m.getPower() == 1 ? "" : ("^" + m.getPower())));
+
+        }
+
+        return sb.toString();
     }
 
 }

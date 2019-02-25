@@ -10,9 +10,12 @@ public class Application {
         PolynomialParser m = new PolynomialParser();
 
        LinkedList<Monomial> first = m.parse("7x^8+20x+6");
-       LinkedList<Monomial> second = m.parse("7x^8+20x+6");
+       LinkedList<Monomial> second = m.parse("7x^7+20x^9+6x");
 
        LinkedList<Monomial> third = first.summ(second);
         System.out.println(third.print());
+
+        SumMonomial sumMonomial = new SumMonomial();
+        System.out.println(sumMonomial.formatter(third));
     }
 }

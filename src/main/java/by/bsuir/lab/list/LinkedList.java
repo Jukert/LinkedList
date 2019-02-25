@@ -37,6 +37,18 @@ public class LinkedList<E> {
         temp.next = node;
     }
 
+    public void addAll(LinkedList<E> list) {
+        Node temp = list.head;
+        while(true)  {
+            add((E) temp.data);
+            if (temp.next != null) {
+                temp = temp.next;
+                continue;
+            }
+            return;
+        }
+    }
+
     public E get(int i) {
 
         Node temp = this.head;
@@ -75,22 +87,21 @@ public class LinkedList<E> {
     public void remove(E e) {
 
         Node temp = head, prev = null;
-
-        if (temp == null) {
+        if (temp != null && temp.data.equals(e))
+        {
+            head = temp.next;
             return;
         }
 
-        while (temp != null && temp.data.equals(e)) {
+        while (temp != null && !temp.data.equals(e))
+        {
             prev = temp;
             temp = temp.next;
         }
 
-        if (temp == null) {
-            return;
-        }
-        if (prev != null) {
-            prev = temp;
-        }
+        if (temp == null) return;
+
+        prev.next = temp.next;
     }
 
     public int size() {
