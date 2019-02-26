@@ -1,4 +1,4 @@
-package by.bsuir.lab;
+package by.bsuir.lab.tasks;
 
 import by.bsuir.lab.common.Monomial;
 import by.bsuir.lab.common.Operator;

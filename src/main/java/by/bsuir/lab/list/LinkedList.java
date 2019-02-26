@@ -1,7 +1,7 @@
 package by.bsuir.lab.list;
 
 
-import by.bsuir.lab.SumMonomial;
+import by.bsuir.lab.tasks.SumMonomial;
 
 public class LinkedList<E> {
 
@@ -16,7 +16,6 @@ public class LinkedList<E> {
             this.data = data;
         }
     }
-
 
     public void add(E value) {
 
