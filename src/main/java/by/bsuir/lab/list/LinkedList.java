@@ -3,6 +3,9 @@ package by.bsuir.lab.list;
 
 import by.bsuir.lab.tasks.SumMonomial;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class LinkedList<E> {
 
     Node<E> head;
@@ -78,7 +81,7 @@ public class LinkedList<E> {
             temp = temp.next;
             sb.append(", ");
         }
-        sb.append(temp.data);
+        sb.append(temp.data.toString());
         sb.append("]");
         return sb.toString();
     }
@@ -122,5 +125,32 @@ public class LinkedList<E> {
     public LinkedList<E> summ(LinkedList<E> list) {
         SumMonomial sumMonomial = new SumMonomial();
         return (LinkedList<E>) sumMonomial.sum(this, list);
+    }
+
+    public E[] toArray() {
+        if (this.head == null) {
+            return null;
+        }
+
+        Object[] arrayList = new Object[this.size()];
+        Node temp = this.head;
+        int i =0;
+        while (temp.next != null) {
+            arrayList[i] = temp.data;
+            temp = temp.next;
+            i++;
+        }
+        arrayList[i] = temp.data;
+        return (E[]) arrayList;
+    }
+
+    public LinkedList<E> sort(Comparator<E> eComparator) {
+        E[] arrayList = this.toArray();
+        Arrays.sort(arrayList, eComparator);
+        this.head = null;
+        for (E el: arrayList) {
+            this.add(el);
+        }
+        return this;
     }
 }

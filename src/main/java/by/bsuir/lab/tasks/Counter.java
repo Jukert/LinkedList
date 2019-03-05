@@ -5,9 +5,16 @@ import by.bsuir.lab.list.LinkedList;
 
 public class Counter {
 
-    private int steps = 150;
+    private int steps = 10;
     private int k = 3;
 
+    public Counter() {
+    }
+
+    public Counter(int steps, int k) {
+        this.steps = steps;
+        this.k = k;
+    }
 
     public void play(LinkedList<Player> playerList) {
         int players = playerList.size();

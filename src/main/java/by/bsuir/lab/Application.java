@@ -1,12 +1,14 @@
 package by.bsuir.lab;
 
 
-import by.bsuir.lab.common.Monomial;
-import by.bsuir.lab.common.Player;
+import by.bsuir.lab.common.*;
 import by.bsuir.lab.list.LinkedList;
 import by.bsuir.lab.parser.PolynomialParser;
 import by.bsuir.lab.tasks.Counter;
 import by.bsuir.lab.tasks.SumMonomial;
+
+import java.util.ArrayList;
+import java.util.Set;
 
 public class Application {
     public static void main(String[] args) {
@@ -40,5 +42,20 @@ public class Application {
         linkedList.add(new Player(12));
 
         counter.play(linkedList);
+
+
+        System.out.println("-----------------------------------------------------------------------------");
+
+        LinkedList<User> userList = new LinkedList<>();
+        userList.add(new User("Name", "123"));
+        userList.add(new User("Artem", "2356"));
+        userList.add(new User("Sveta", "7865"));
+        userList.add(new User("bory", "5555555"));
+
+        userList.sort(new UserComparatorByName());
+        System.out.println(userList.print());
+
+        userList.sort(new UserComparatorByPhone());
+        System.out.println(userList.print());
     }
 }
