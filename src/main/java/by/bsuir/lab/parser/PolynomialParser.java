@@ -44,7 +44,9 @@ public class PolynomialParser {
 
             String data[] = str.split("x");
             try {
-                monomial.setKoefficient(data[0] != "" && !data[0].isEmpty() ? Integer.valueOf(data[0]) : null);
+                if (!data[0].isEmpty()) {
+                    monomial.setKoefficient(data[0] != "" && !data[0].isEmpty() ? Integer.valueOf(data[0]) : null);
+                }
             } catch (ClassCastException e) {
                 throw new ClassCastException("Error in cast koefficient");
             }

@@ -5,23 +5,24 @@ import by.bsuir.lab.list.LinkedList;
 
 public class Counter {
 
-    private int steps = 10;
     private int k = 3;
 
     public Counter() {
     }
 
-    public Counter(int steps, int k) {
-        this.steps = steps;
+    public Counter(int k) {
         this.k = k;
     }
 
     public void play(LinkedList<Player> playerList) {
-        int players = playerList.size();
 
         int j = 0;
-        for (int i = 0; i < steps; i++) {
+        for (int i = 0;; i++) {
 
+            if (playerList.size() == 1) {
+                System.out.println(playerList.get(0).toString() + " i: " + i);
+                return;
+            }
             if(playerList.size() == 0) {
                 throw new IllegalArgumentException("Players not issue");
             }
@@ -31,11 +32,10 @@ public class Counter {
             }
 
             if (i % k == 0 && i != 0) {
-                System.out.println(playerList.get(j) + " i: " + i);
+                //System.out.println(playerList.get(j) + " i: " + i);
                 playerList.remove(playerList.get(j));
             }
             j++;
-            players = playerList.size();
         }
 
     }

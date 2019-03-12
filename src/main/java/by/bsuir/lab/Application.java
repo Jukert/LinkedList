@@ -7,15 +7,12 @@ import by.bsuir.lab.parser.PolynomialParser;
 import by.bsuir.lab.tasks.Counter;
 import by.bsuir.lab.tasks.SumMonomial;
 
-import java.util.ArrayList;
-import java.util.Set;
-
 public class Application {
     public static void main(String[] args) {
         PolynomialParser m = new PolynomialParser();
 
-       LinkedList<Monomial> first = m.parse("7x^8+20x+6");
-       LinkedList<Monomial> second = m.parse("7x^7+20x^9+6x");
+       LinkedList<Monomial> first = m.parse("x^5");
+       LinkedList<Monomial> second = m.parse("7x^7+20x^5+6x");
 
        LinkedList<Monomial> third = first.summ(second);
         System.out.println(third.print());

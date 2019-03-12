@@ -23,7 +23,7 @@ class CostumeLinkedList<T> {
             while (temp.next!=null) {
                 temp = temp.next;
             }
-            newNode.prev = temp;//FIXME
+            newNode.prev = temp;
             temp.next=newNode;
         }
     }

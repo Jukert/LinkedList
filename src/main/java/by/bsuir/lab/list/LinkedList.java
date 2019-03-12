@@ -1,9 +1,9 @@
 package by.bsuir.lab.list;
 
 
+import by.bsuir.lab.tasks.Arrays;
 import by.bsuir.lab.tasks.SumMonomial;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class LinkedList<E> {
